@@ -22,6 +22,7 @@
                         <th class="col-3">Display</th>
                         <th class="col-6">Permission</th>
                         <th class="col-1">Action</th>
+                    </tr>
                 </thead>
                 <tfoot>
                     <tr>

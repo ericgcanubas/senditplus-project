@@ -233,7 +233,7 @@
                                      <a class="nav-link text-white" href="role.php">Roles</a>
                                      <a class="nav-link text-white" href="permission.php">Permission</a>
                                     </nav>
-                                </div>
+                                </div> --}}
                                 <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseReport" aria-expanded="false" aria-controls="collapsePages">
                                     <div class="sb-nav-link-icon text-white"><i class="fa fa-area-chart"></i></div>
                                     Reports
@@ -241,10 +241,10 @@
                                 </a>
                                 <div class="collapse bg-secondary" id="collapseReport" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                     <a class="nav-link text-white" href="activity-logs.php">Activity Logs</a>
+                                     <a class="nav-link text-white" href="activitylogs">Activity Logs</a>
                                      <!-- <a class="nav-link text-white" href="#">Report 2</a> -->
                                     </nav>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
 

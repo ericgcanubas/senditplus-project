@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\ActivityLogsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,4 +76,5 @@ Route::middleware(['auth'])->group(function()
     Route::post('/profile/change-password',[UserController::class,'update_password'])->name('changePasswordPost');
     Route::post('/profile/avatar',[UserController::class,'update_avatar']);
 
+    Route::get('/activitylogs',[ActivityLogsController::class,'index']);
 });
