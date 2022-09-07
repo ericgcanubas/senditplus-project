@@ -6,6 +6,8 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ActivityLogsController;
+use App\Http\Controllers\BranchController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,26 +50,32 @@ Route::middleware(['auth'])->group(function()
     // Route::post('view',[CommentController::class,'store']);
 
 
-    Route::get('permission', [PermissionController::class,'index']);
-    Route::post('/addpermission', [PermissionController::class,'store']);
-    Route::get('/permission/{id}/modify', [PermissionController::class,'edit']);
-    Route::post('/permission/update/{id}',[PermissionController::class,'update']);
-    Route::post('permission/delete/{id}',[PermissionController::class,'destroy']);
 
-    Route::get('role', [RoleController::class,'index']);
-    Route::post('/create', [RoleController::class,'store']);
-    Route::get('role/create', [RoleController::class,'create']);
-    Route::post('role/delete/{id}',[RoleController::class,'destroy']);
-    Route::get('/role/{id}/edit',[RoleController::class,'edit']);
-    Route::post('/role/update/{id}',[RoleController::class,'update']);
-    Route::get('/role/modify/{id}',[RoleController::class,'show']);
-    Route::post('/role/modify/{id}',[RoleController::class,'update_role_has_permission']);
 
-    Route::get('subscription', [SubscriptionController::class,'index']);
-    Route::get('subscription/roles-setup/{id}', [SubscriptionController::class,'show']);
-    Route::post('subscription/roles-setup/{id}', [SubscriptionController::class,'modify_roles']);
-    Route::get('subscription/status/{id}', [SubscriptionController::class,'show_status']);
-    Route::post('subscription/status/{id}', [SubscriptionController::class,'modify_status']);
+
+
+            Route::get('permission', [PermissionController::class,'index']);
+            Route::post('/addpermission', [PermissionController::class,'store']);
+            Route::get('/permission/{id}/modify', [PermissionController::class,'edit']);
+            Route::post('/permission/update/{id}',[PermissionController::class,'update']);
+            Route::post('permission/delete/{id}',[PermissionController::class,'destroy']);
+
+            Route::get('role', [RoleController::class,'index']);
+            Route::post('/create', [RoleController::class,'store']);
+            Route::get('role/create', [RoleController::class,'create']);
+            Route::post('role/delete/{id}',[RoleController::class,'destroy']);
+            Route::get('/role/{id}/edit',[RoleController::class,'edit']);
+            Route::post('/role/update/{id}',[RoleController::class,'update']);
+            Route::get('/role/modify/{id}',[RoleController::class,'show']);
+            Route::post('/role/modify/{id}',[RoleController::class,'update_role_has_permission']);
+
+            Route::get('subscription', [SubscriptionController::class,'index']);
+            Route::get('subscription/roles-setup/{id}', [SubscriptionController::class,'show']);
+            Route::post('subscription/roles-setup/{id}', [SubscriptionController::class,'modify_roles']);
+            Route::get('subscription/status/{id}', [SubscriptionController::class,'show_status']);
+            Route::post('subscription/status/{id}', [SubscriptionController::class,'modify_status']);
+            Route::get('/activitylogs',[ActivityLogsController::class,'index']);
+
 
     Route::get('/profile',[UserController::class,'profile'])->name('user.profile');
     Route::get('/profile/edit',[UserController::class,'index']);
@@ -76,5 +84,9 @@ Route::middleware(['auth'])->group(function()
     Route::post('/profile/change-password',[UserController::class,'update_password'])->name('changePasswordPost');
     Route::post('/profile/avatar',[UserController::class,'update_avatar']);
 
-    Route::get('/activitylogs',[ActivityLogsController::class,'index']);
+
+    Route::get('/branch',[BranchController::class,'index']);
+    Route::get('/branch/create',[BranchController::class,'create']);
+    Route::get('/branch/edit/{id}',[BranchController::class,'edit']);
+
 });

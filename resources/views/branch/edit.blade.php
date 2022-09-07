@@ -30,7 +30,7 @@
                 <div class="col-md-6 form-floating mb-2">
                 <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Branch Address</label>
-                    <input class="form-control" type="address" value="Corner Echavez & Fuentes St. P-10, Poblacion, Nabunturan, ComVal Province		
+                    <input class="form-control" type="address" value="Corner Echavez & Fuentes St. P-10, Poblacion, Nabunturan, ComVal Province
 ">
                 </div>
                 </div>
@@ -41,7 +41,7 @@
                 </div>
                 </div>
             </div>
-            </div>            
+            </div>
         </div>
         </div>
         <!-- Modify End -->

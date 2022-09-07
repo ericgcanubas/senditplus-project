@@ -15,7 +15,7 @@ class BranchController extends Controller
     public function index()
     {
         //  Branch interface
-        return view('branch.branch');
+        return view('branch.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class BranchController extends Controller
     public function create()
     {
         // Create branch
-        return view('branch.br_create');
+        return view('branch.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class BranchController extends Controller
     public function edit()
     {
         // Edit branch
-        return view('branch.br_edit');
+        return view('branch.edit');
     }
 
     /**

@@ -5,10 +5,10 @@
     <div class="container-fluid px-4">
         <ol class="breadcrumb mb-2">
             <li class="breadcrumb-item active h5"> Branch List</li>
-            <a href="{{url ('br_create')}}" class="btn btn-sm btn-light text-success"style="position:absolute; margin-left:63rem;"><span class="fa fa-plus" ></span>  Create</a> 
+            <a href="{{url ('branch/create')}}" class="btn btn-sm btn-light text-success"style="position:absolute; margin-left:63rem;"><span class="fa fa-plus" ></span>  Create</a>
         </ol>
 
-                <!-- Modify Start -->    
+                <!-- Modify Start -->
 
         <div class="card mb-2">
             <div class="card-body">
@@ -23,6 +23,7 @@
                             <th>Status</th>
                             <th>Action</th>
                     </thead>
+
                     <tbody>
                         <tr>
                             <td>01010101</td>
@@ -32,7 +33,7 @@
                             <td>05-25-2022 13:47:21</td>
                             <td><span class="btn btn-success btn-sm mt-1">Active</span></td>
                             <td>
-                            <a  href="{{url('br_edit')}}" class="btn btn-primary btn-sm mt-1" ><span class="fa fa-edit"></span> Edit</a>
+                            <a  href="{{url('branch/edit/1')}}" class="btn btn-primary btn-sm mt-1" ><span class="fa fa-edit"></span> Edit</a>
                             </td>
                         </tr>
                         <tr>
@@ -43,7 +44,7 @@
                             <td>05-26-2022 13:47:22</td>
                             <td><span class="btn btn-danger btn-sm mt-1">Inactive</span></td>
                             <td>
-                                <a  href="edit_branch.php" class="btn btn-primary btn-sm mt-1" ><span class="fa fa-edit"></span> Edit</a>
+                                <a  href="branch/edit/1" class="btn btn-primary btn-sm mt-1" ><span class="fa fa-edit"></span> Edit</a>
                             </td>
                         </tr>
                         <tr>
@@ -54,13 +55,13 @@
                             <td>05-27-2022 13:47:23</td>
                             <td><span class="btn btn-success btn-sm mt-1">Active</span></td>
                             <td>
-                            <a  href="edit_branch.php" class="btn btn-primary btn-sm mt-1" ><span class="fa fa-edit"></span> Edit</a>
+                            <a  href="branch/edit/1" class="btn btn-primary btn-sm mt-1" ><span class="fa fa-edit"></span> Edit</a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
             <!-- Modify End -->
-        </div> 
+        </div>
     </div>
 @endsection;
