@@ -6,6 +6,10 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ActivityLogsController;
+
+use App\Http\Controllers\SmsController;
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\BillingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,4 +81,14 @@ Route::middleware(['auth'])->group(function()
     Route::post('/profile/avatar',[UserController::class,'update_avatar']);
 
     Route::get('/activitylogs',[ActivityLogsController::class,'index']);
+
+
+    Route::get('/bill_history',[BillingController::class,'index']);
+    Route::get('/bill_setup',[BillingController::class,'create']);
+
+    Route::get('/sms-inbox', [SmsController::class, 'index']);
+    Route::get('/sms-panel', [SmsController::class, 'create']);
+
+    Route::get('/email-inbox', [EmailController::class, 'index']);
+
 });
