@@ -119,7 +119,7 @@ Update <br /> Profile Photo
 <div class="col-md-12 form-group mb-3">
     <div class="row">
         <div class="col-6 col-sm col-md-6 text-first">
-        <a class="btn  btn-success text-white" href="profile/change-password">Change Password</a>
+        <a class="btn  btn-success text-white" data-bs-toggle="modal" data-bs-target="#exampleModal" href="profile/change-password">Change Password</a>
         </div>
         <div class="col-6 col-sm col-md-6 col-md-6 text-end">
         <a class="btn btn-primary text-white" href="profile/edit">Update Profile</a>
@@ -141,7 +141,7 @@ Update <br /> Profile Photo
 
         <!-- Modify End -->
     </div>
-
+@include('profile.change-password')
 </div>
 
 @endsection

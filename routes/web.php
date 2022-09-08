@@ -7,6 +7,9 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ActivityLogsController;
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\BillingController;
+use App\Http\Controllers\SmsController;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,5 +91,14 @@ Route::middleware(['auth'])->group(function()
     Route::get('/branch',[BranchController::class,'index']);
     Route::get('/branch/create',[BranchController::class,'create']);
     Route::get('/branch/edit/{id}',[BranchController::class,'edit']);
+
+
+    Route::get('/bill_history',[BillingController::class,'index']);
+    Route::get('/bill_setup',[BillingController::class,'create']);
+
+    Route::get('/sms-inbox', [SmsController::class, 'index']);
+    Route::get('/sms-panel', [SmsController::class, 'create']);
+
+    Route::get('/email-inbox', [EmailController::class, 'index']);
 
 });
