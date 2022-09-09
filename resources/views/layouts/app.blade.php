@@ -104,41 +104,6 @@
                              @csrf
                          </form>    </li>
 
-
-
-                        @guest
-                            {{-- @if (Route::has('login'))
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li >
-                                    <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif --}}
-
-                        @else
-
-                            {{-- <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li> --}}
-                        @endguest
                     </ul>
                 </li>
             </ul>
@@ -163,6 +128,7 @@
                                 </a>
 
 
+                                @if (auth::user()->username=='superadmin')
                                     <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseRole" aria-expanded="false" aria-controls="collapsePages">
                                         <div class="sb-nav-link-icon text-white"><i class="fa fa-user"></i></div>
                                         Access Management
@@ -175,7 +141,7 @@
                                          <a class="nav-link text-white" href="/permission">Permission</a>
                                         </nav>
                                     </div>
-
+                                    @endif
                                     <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                         <div class="sb-nav-link-icon text-white"><i class="fa fa-paper-plane-o"></i></div>
                                         SMS
@@ -212,31 +178,20 @@
                                      <a class="nav-link text-white" href="/bill_history">Statement</a>
                                     </nav>
                                 </div>
-        {{-- <a class="nav-link text-white" href="subscription.php">
+                                @if (auth::user()->username=='superadmin')
+                                        <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseReport" aria-expanded="false" aria-controls="collapsePages">
+                                            <div class="sb-nav-link-icon text-white"><i class="fa fa-area-chart"></i></div>
+                                            Reports
+                                            <div class="sb-sidenav-collapse-arrow text-white"><i class="fa fa-angle-down"></i></div>
+                                        </a>
+                                        <div class="collapse bg-secondary" id="collapseReport" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                            <a class="nav-link text-white" href="activitylogs">Activity Logs</a>
 
-                                <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseRole" aria-expanded="false" aria-controls="collapsePages">
-                                    <div class="sb-nav-link-icon text-white"><i class="fa fa-user"></i></div>
-                                    Access Roles
-                                    <div class="sb-sidenav-collapse-arrow text-white"><i class="fa fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse bg-secondary" id="collapseRole" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                     <a class="nav-link text-white" href="subscriber.php">Subscribers</a>
-                                     <a class="nav-link text-white" href="role.php">Roles</a>
-                                     <a class="nav-link text-white" href="permission.php">Permission</a>
-                                    </nav>
-                                </div> --}}
-                                <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseReport" aria-expanded="false" aria-controls="collapsePages">
-                                    <div class="sb-nav-link-icon text-white"><i class="fa fa-area-chart"></i></div>
-                                    Reports
-                                    <div class="sb-sidenav-collapse-arrow text-white"><i class="fa fa-angle-down"></i></div>
-                                </a>
-                                <div class="collapse bg-secondary" id="collapseReport" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                     <a class="nav-link text-white" href="activitylogs">Activity Logs</a>
-                                     <!-- <a class="nav-link text-white" href="#">Report 2</a> -->
-                                    </nav>
-                                </div>
+                                            </nav>
+                                        </div>
+                                @endif
+
                             </div>
                         </div>
 
@@ -267,6 +222,7 @@
         </div>
     </div>
 
+
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}" defer></script>
     <script src="{{ asset('js/scripts.js') }}" defer></script>
@@ -280,6 +236,9 @@
     <script src="{{ asset('js/datatables-simple-demo1.js') }}" defer></script>
     <script src="{{ asset('js/js/all.js') }}" crossorigin="anonymous" defer></script>
 
+
+
+
     <script>
         const loaderContainer = document.querySelector('.loader-container');
         window.addEventListener('load', () => {
@@ -287,6 +246,12 @@
         });
 
 
+
+
                     </script>
+
+
+
+
 </body>
 </html>

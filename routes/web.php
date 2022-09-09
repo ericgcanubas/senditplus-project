@@ -72,6 +72,8 @@ Route::middleware(['auth'])->group(function()
     Route::post('subscription/roles-setup/{id}', [SubscriptionController::class,'modify_roles']);
     Route::get('subscription/status/{id}', [SubscriptionController::class,'show_status']);
     Route::post('subscription/status/{id}', [SubscriptionController::class,'modify_status']);
+    Route::get('subscription/credentials/{id}', [SubscriptionController::class,'credentials']);
+
 
     Route::get('/profile',[UserController::class,'profile'])->name('user.profile');
     Route::get('/profile/edit',[UserController::class,'index']);

@@ -73,9 +73,9 @@
 
                                               <div class="form-group">
                                                   <div class="col-md-12 col-md-offset-4 text-end">
-                                                      <a href="/profile" class="btn btn-secondary">
+                                                      {{-- <a href="/profile" class="btn btn-secondary">
                                                           Cancel
-                                                      </a>
+                                                      </a> --}}
                                                       <button type="submit" class="btn btn-primary">
                                                           Change Password
                                                       </button>

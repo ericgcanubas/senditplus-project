@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Spatie\Activitylog\Models\Activity;
+use Spatie\Activitylog\Models\User;
 use DB;
 class ActivityLogsController extends Controller
 {
@@ -14,8 +15,12 @@ class ActivityLogsController extends Controller
      */
     public function index()
     {
-        //
-        $activitylogs = Activity::all();
+        $activitylogs = DB::table('Activity_Log')
+        ->leftJoin('users', 'Activity_Log.subject_id', '=', 'users.id')
+        ->select(['Activity_Log.*', 'users.firstname','users.lastname','users.username'])
+
+        ->get();
+
        return view("activitylogs.index",compact('activitylogs'));
 
     }

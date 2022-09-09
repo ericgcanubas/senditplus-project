@@ -16,9 +16,7 @@ class SubscriptionController extends Controller
     public function index()
     {
         //
-
        // $users = User::all();
-
         $users =  DB::table('users')
             ->leftJoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
             ->leftJoin('roles', 'model_has_roles.role_id', '=', 'roles.id')
@@ -27,6 +25,8 @@ class SubscriptionController extends Controller
 
         return view('subscription.index',compact('users'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -109,6 +109,15 @@ class SubscriptionController extends Controller
      */
     public function edit($id)
     {
+        //
+    }
+
+    public function credentials($id)
+    {
+        $subscription= user::find($id);
+
+
+        return view("subscription.credentials",compact("subscription"));
         //
     }
 
