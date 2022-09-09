@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Spatie\Activitylog\Models\Activity;
-use Spatie\Activitylog\Models\User;
+use App\Models\user;
 use DB;
 class ActivityLogsController extends Controller
 {
@@ -15,14 +15,21 @@ class ActivityLogsController extends Controller
      */
     public function index()
     {
-        $activitylogs = DB::table('Activity_Log')
-        ->leftJoin('users', 'Activity_Log.subject_id', '=', 'users.id')
-        ->select(['Activity_Log.*', 'users.firstname','users.lastname','users.username'])
 
-        ->get();
 
+            //subquery via columns
+        $activitylogs = DB::table("users")
+          ->select("users.*",
+                    DB::raw("(SELECT activity_log.created_at FROM activity_log
+                                WHERE activity_log.subject_id = users.id
+
+                                ORDER BY activity_log.id DESC limit 1) as latest_log"),
+                    DB::raw("(SELECT activity_log.description FROM activity_log
+                            WHERE activity_log.subject_id = users.id
+
+                            ORDER BY activity_log.id DESC limit 1) as description_log"))
+                            ->orderBy('latest_log', 'desc')->get();
        return view("activitylogs.index",compact('activitylogs'));
-
     }
 
     /**
@@ -55,6 +62,9 @@ class ActivityLogsController extends Controller
     public function show($id)
     {
         //
+        $users = user::find($id);
+        $activitylogs=Activity::where('subject_id',$id)->orderBy('id', 'desc')->get();
+        return view("activitylogs/details",compact('activitylogs','users'));
     }
 
     /**

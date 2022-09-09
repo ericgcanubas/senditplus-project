@@ -83,7 +83,7 @@ Route::middleware(['auth'])->group(function()
     Route::post('/profile/avatar',[UserController::class,'update_avatar']);
 
     Route::get('/activitylogs',[ActivityLogsController::class,'index']);
-
+    Route::get('/activitylogs/user/{id}',[ActivityLogsController::class,'show']);
 
     Route::get('/bill_history',[BillingController::class,'index']);
     Route::get('/bill_setup',[BillingController::class,'create']);
