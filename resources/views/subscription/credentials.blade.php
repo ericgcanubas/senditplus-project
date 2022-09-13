@@ -64,7 +64,16 @@
 
                                                           <tr>
                                                               <td>Subscription Type :</td>
-                                                              <td>Postpaid</td>
+                                                              <td>
+                                                                    @if ($subscription->subscription_type==1)
+                                                                 <label>Postpaid</label>
+                                                                   @elseif ($subscription->subscription_type==2)
+                                                                   <label>Prepaid</label>
+                                                                    @else
+
+                                                                    @endif
+
+                                                              </td>
                                                           </tr>
                                                           <tr>
                                                               <td>Local Text Rate :</td>

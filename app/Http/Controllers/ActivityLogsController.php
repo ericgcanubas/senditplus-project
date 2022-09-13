@@ -63,7 +63,9 @@ class ActivityLogsController extends Controller
     {
         //
         $users = user::find($id);
+
         $activitylogs=Activity::where('subject_id',$id)->orderBy('id', 'desc')->get();
+
         return view("activitylogs/details",compact('activitylogs','users'));
     }
 

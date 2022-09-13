@@ -20,6 +20,18 @@
         <div class="col-md-4 my-auto">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
+                @if (session('error'))
+                <div class="alert alert-danger">
+                     {{ session('error') }}
+                </div>
+                @endif
+
+                @if (session('newregister'))
+                <div class="alert alert-success">
+                     {{ session('newregister') }}
+                </div>
+                @endif
+
 
                 <div class="card-body ">
                     <form method="POST" action="{{ route('login') }}">

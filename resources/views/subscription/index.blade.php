@@ -60,9 +60,9 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->firstname. ' '. $user->lastname}}</td>
                                 <td>@if ($user->subscription_type==1)
-                                    Prepaid
-                                @else
-                                    PostPaid
+                                   PostPaid
+                                @elseif ($user->subscription_type==2)
+                                Prepaid
                                 @endif</td>
                                 <td> @if ($user->status==0)
                                     <span class="badge badge-sm bg-success">Active</span>

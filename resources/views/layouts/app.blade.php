@@ -80,9 +80,25 @@
                 <div class="input-group">
                     <!-- <button class="btn btn-primary btn-background" id="btnNavbarSearch" type="button"><i class="fa fa-bell"></i></button> -->
                     <!-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />-->
-                    <a class="nav-link text-white"  href="#" role="button" aria-expanded="false"><i class="fa fa-bell "></i> 0</a>
+                    {{-- <a class="nav-link text-white"  href="#" role="button" aria-expanded="false"></a> --}}
                 </div>
             </form>
+            {{--  --}}
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-bell "></i> 0</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="">List</a></li>
+                        <li><a class="dropdown-item" href="">List</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+            {{--  --}}
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">

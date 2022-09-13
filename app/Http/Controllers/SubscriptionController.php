@@ -21,6 +21,7 @@ class SubscriptionController extends Controller
             ->leftJoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
             ->leftJoin('roles', 'model_has_roles.role_id', '=', 'roles.id')
             ->select('users.*', 'roles.display')
+            ->orderby('users.id','desc')
             ->get();
 
         return view('subscription.index',compact('users'));
